@@ -3,7 +3,7 @@ import './App.css';
 import AppPage from './AppPage';
 import axios from 'axios'
 import Search from './components/search';
-
+import MainVideo from './components/MainVideo';
 
 
 
@@ -17,6 +17,8 @@ class App extends Component {
         selectedVideo: null,
         comments: [],
         search: '',
+        videoTitle: '',
+        videoDescription: ''
        }
     }
   
@@ -49,24 +51,30 @@ class App extends Component {
   
   
     render() { 
-      const {search} = this.state;
-      const onSelect = (video) =>{
-        this.setState({selectedVideo: video});
-        console.log(video);
+        const {search} = this.state;
+        const onSelect = (video, video_title, video_description) =>{
+          this.setState({selectedVideo: video, videoTitle: video_title, 
+            videoDescription: video_description});
+          console.log(video);
     }
-    return (
+    return ( 
         <div>
           <Search search = {this.myCallback}/>
-         {this.state.search !== '' }    
-        
-         
-            
-            
-        </div>
 
-       );
-       }
-   } 
+          <MainVideo selectedVideo = {this.state.selectedVideo} 
+            videoTitle = {this.state.videoTitle} 
+            videoDescription ={this.state.videoDescription}
+            relatedVideos = {this.getRelatedVideos}
+            />
+            {this.state.search !== ''} 
+          
+
+         
+          
+        </div>
+     );
+  }
+}
 export default App;
 
 
