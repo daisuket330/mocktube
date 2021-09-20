@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import SearchIcon from "@material-ui/icons/Search";
-
+import './search.css'
 class Search extends Component {
     constructor(props) {
         super(props);
@@ -28,11 +28,11 @@ class Search extends Component {
 
     render() { 
         return ( 
-            <div>
-                <form onSubmit={this.handleSubmit}>
+            <div className= "searchrow">
+                <form  onSubmit={this.handleSubmit}>
                 
                 <input placeholder="Search" name="search" onChange={this.handleChange} value = {this.state.search}></input>
-                <button className="btn" type="submit">{<SearchIcon className="search_input_button"/>}</button>
+                <button  type="submit">{<SearchIcon />}</button>
                 </form>
             </div>
          );

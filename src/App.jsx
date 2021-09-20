@@ -67,18 +67,20 @@ class App extends Component {
           
           <Header />
           <Sidebar />
-          <div className="MainVideo">
+           {/* <Recommend /> */}
+
+            <div className="MainVideo">
             <MainVideo   selectedVideo = {this.state.selectedVideo}
             videoTitle = {this.state.videoTitle} 
             videoDescription ={this.state.videoDescription}
             
             /> 
             </div>
-           {/* <Recommend /> */}
 
            {this.state.search !== '' ?
           <SearchResults videos = {this.state.videos} func = {onSelect}/>
           : <div></div>}
+         
 
     
             

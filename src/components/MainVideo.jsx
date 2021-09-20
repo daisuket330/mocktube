@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './mainvideo.css'
 const MainVideo = ({ selectedVideo }) => {
     // if there's no video currently seleceted return "No Video Selected".
 

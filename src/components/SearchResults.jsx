@@ -1,5 +1,5 @@
 import React from 'react';
-
+import './SearchResults.css'
 const SearchResults = (props) => {
     let videos = props.videos
     let video_id = ''; 
