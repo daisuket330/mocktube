@@ -1,10 +1,11 @@
-import React from 'react';
-import "./App.css";
+import { Component } from 'react'
+import './App.css';
 import Header from './Header';
 import Sidebar from './sidebar';
 import Recommend from './recommended';
-import React, { Component } from 'react';
 import axios from 'axios'
+
+
 
 
 
@@ -73,10 +74,10 @@ class App extends Component {
             
         </div>
 
-    );
-  }
-} 
-  export default App;
+       );
+       }
+   } 
+export default App;
 
 
     
