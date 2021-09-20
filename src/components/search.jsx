@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SearchIcon from "@material-ui/icons/Search";
 
 class Search extends Component {
     constructor(props) {
@@ -29,9 +30,9 @@ class Search extends Component {
         return ( 
             <div>
                 <form onSubmit={this.handleSubmit}>
-                <label>Search:</label>
-                <input name="search" onChange={this.handleChange} value = {this.state.search}></input>
-                <button className="btn" type="submit">Search</button>
+                
+                <input placeholder="Search" name="search" onChange={this.handleChange} value = {this.state.search}></input>
+                <button className="btn" type="submit">{<SearchIcon className="search_input_button"/>}</button>
                 </form>
             </div>
          );
@@ -39,3 +40,8 @@ class Search extends Component {
 }
  
 export default Search;
+
+<div className="header_input">
+            <input placeholder="Search" type="text"/>
+            
+            </div>

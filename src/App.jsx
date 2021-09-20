@@ -1,10 +1,12 @@
 import { Component } from 'react'
 import './App.css';
-import AppPage from './AppPage';
+
 import axios from 'axios'
 import Search from './components/search';
 import MainVideo from './components/MainVideo';
-
+import Header from './Header';
+import Sidebar from './sidebar';
+import Recommend from './recommended';
 
 
 
@@ -48,25 +50,32 @@ class App extends Component {
       this.getVideos(searchData);
     }
   
-  
-  
+    
     render() { 
         const {search} = this.state;
         const onSelect = (video, video_title, video_description) =>{
           this.setState({selectedVideo: video, videoTitle: video_title, 
             videoDescription: video_description});
           console.log(video);
+          
     }
     return ( 
         <div>
+            
           <Search search = {this.myCallback}/>
 
-          <MainVideo selectedVideo = {this.state.selectedVideo} 
+          <Header />
+          <Sidebar />
+          <div className="MainVideo"><MainVideo   selectedVideo = {this.state.selectedVideo}/> 
             videoTitle = {this.state.videoTitle} 
             videoDescription ={this.state.videoDescription}
-            relatedVideos = {this.getRelatedVideos}
-            />
-            {this.state.search !== ''} 
+            relatedVideos = {this.getRelatedVideos}</div>
+         
+            
+          <Recommend />
+            {this.state.search !== ''}
+            {/* <Sidebar />
+            <Recommend/> */}
           
 
          
