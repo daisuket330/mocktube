@@ -1,10 +1,8 @@
 import { Component } from 'react'
 import './App.css';
-import Header from './Header';
-import Sidebar from './sidebar';
-import Recommend from './recommended';
+import AppPage from './AppPage';
 import axios from 'axios'
-
+import Search from './components/search';
 
 
 
@@ -22,19 +20,13 @@ class App extends Component {
        }
     }
   
-    async getComments() {
-      let response = await axios.get('http://127.0.0.1:8000/mytube/video')
-      console.log(response)
-      this.setState({
-        comments: response.data
-      })
-    }
+    
   
     async getVideos(search) {
       let response = await axios.get(`https://www.googleapis.com/youtube/v3/search/`, {
         params:{
           part: 'snippet',
-          maxResults: 5,
+          maxResults: 10,
           key: 'AIzaSyAYK1c_uKCU4g4XfW7Upmvy4b2B8PTQaYo',
           q: search,
           type: 'video'
@@ -61,16 +53,14 @@ class App extends Component {
       const onSelect = (video) =>{
         this.setState({selectedVideo: video});
         console.log(video);
-      }
-      return (
-        <div className="app">
+    }
+    return (
+        <div>
+          <Search search = {this.myCallback}/>
+         {this.state.search !== '' }    
+        
+         
             
-
-            <Header />
-            <div className="app_page">
-              <Sidebar />
-              <Recommend/>    
-            </div>
             
         </div>
 
