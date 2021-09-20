@@ -1,18 +1,18 @@
 import React from 'react';
 
-const SearchList = (props) => {
+const SearchResults = (props) => {
     let videos = props.videos
     let video_id = ''; 
 
-    const callBack = (video_id, video_title, videoDescription) =>{
-        props.function(video_id,video_title, videoDescription);
+    const callBackFunction = (video_id, video_title, video_Description) =>{
+        props.func(video_id, video_title, video_Description);
         console.log("callback");
         console.log(video_id);
     }
 
     return ( 
         
-        <div>
+        <div className="videorow">
             {videos.map((video)=>{
                 video_id = video.id.videoId
                 return(
@@ -28,4 +28,4 @@ const SearchList = (props) => {
      );
 }
 
-export default SearchList;
+export default SearchResults;

@@ -1,12 +1,13 @@
 import { Component } from 'react'
 import './App.css';
-
 import axios from 'axios'
 import Search from './components/search';
 import MainVideo from './components/MainVideo';
 import Header from './Header';
 import Sidebar from './sidebar';
 import Recommend from './recommended';
+import SearchResults from './components/SearchResults';
+import RelatedVideos from './components/RelatdVideos';
 
 
 
@@ -63,24 +64,34 @@ class App extends Component {
         <div>
             
           <Search search = {this.myCallback}/>
-
+          
           <Header />
           <Sidebar />
-          <div className="MainVideo"><MainVideo   selectedVideo = {this.state.selectedVideo}/> 
+          <div className="MainVideo">
+            <MainVideo   selectedVideo = {this.state.selectedVideo}
             videoTitle = {this.state.videoTitle} 
             videoDescription ={this.state.videoDescription}
-            relatedVideos = {this.getRelatedVideos}</div>
+            
+            /> 
+            </div>
+           {/* <Recommend /> */}
+
+           {this.state.search !== '' ?
+          <SearchResults videos = {this.state.videos} func = {onSelect}/>
+          : <div></div>}
+
+    
+            
+        </div>
          
             
-          <Recommend />
-            {this.state.search !== ''}
-            {/* <Sidebar />
-            <Recommend/> */}
+            
+            
           
 
          
           
-        </div>
+        
      );
   }
 }

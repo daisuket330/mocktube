@@ -12,6 +12,7 @@ class Recommend extends Component {
             <div className="recommend">
           <h2>reccomended videos</h2>
           <div className="recommend_videos">
+              {/* <VideoCard />
               <VideoCard />
               <VideoCard />
               <VideoCard />
@@ -21,8 +22,7 @@ class Recommend extends Component {
               <VideoCard />
               <VideoCard />
               <VideoCard />
-              <VideoCard />
-              <VideoCard /> 
+              <VideoCard />  */}
           </div>
         </div>
          );

@@ -40,8 +40,3 @@ class Search extends Component {
 }
  
 export default Search;
-
-<div className="header_input">
-            <input placeholder="Search" type="text"/>
-            
-            </div>
