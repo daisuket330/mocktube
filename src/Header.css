@@ -1,26 +1,33 @@
-.header{
+ 
+
+ .header{
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 20px;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 50;
     background-color: white;
+
+    
 }
 
-.header_logo {
+.header_search{
+    display: flex;
+
+    
+}
+
+
+    
+
+.header_logo{
     height: 25px;
     object-fit: contain;
     margin-left: 20px;
 }
 
-.header_input {
-display: flex;
-align-items: center;
-width: 40%;
-border: 1px solid lightgray;
-}
 
 .header_icons {
     display: flex;
