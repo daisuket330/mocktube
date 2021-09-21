@@ -12,12 +12,6 @@ class Comments extends Component {
         }
     }
     
-
-    addComment = async() => {
-        await axios.post(`http://127.0.0.1:8000/mytube/video`, this.state.comment);
-        
-      }  
-
     handleChange = (event) =>{
         this.setState({
             [event.target.name]: event.target.value         
@@ -29,13 +23,38 @@ class Comments extends Component {
         this.addComment();
      }  
 
+    addComment = async() => {
+        const comments ={
+            comment:this.state.comment,
+            video_id:this.state.video_id,
+            dislike:this.state.dislike,
+            like:this.state.like
+        }
+        try{
+
+            let response = await axios.post(`http://127.0.0.1:8000/mytube/video/`, comments);
+            console.log(response);
+        }
+        catch{
+            console.log("comment not added")
+        }
+      
+    }  
+
+
 
 
 
 
 
     render() { 
-        return (  );
+        return (
+            <form onSubmit ={this.handleSubmit}>
+            <label>Comment:</label>
+            <input name="comment" onChange={this.handleChange} value={this.state.comment}></input>
+            <button className="add comment" type="submit">Add Comment</button>
+            </form> 
+         );
     }
 }
  

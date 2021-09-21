@@ -15,6 +15,7 @@ import VideoCallIcon  from '@material-ui/icons/VideoCall';
 import AppsIcon from "@material-ui/icons/Apps";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import Avatar from "@material-ui/core/Avatar"
+import Comments from './components/Comments';
 
 
 
@@ -128,6 +129,7 @@ class App extends Component {
          {this.state.search !== '' ?
         <SearchResults videos = {this.state.videos} func = {onSelect}/>
         : <div></div>}
+        <Comments />
        
 
   
