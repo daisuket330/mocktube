@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import './recommended.css';
-import VideoCard from './VideoCard';
+// import VideoCard from './VideoCard';
 class Recommend extends Component {
     constructor(props) {
         super(props);

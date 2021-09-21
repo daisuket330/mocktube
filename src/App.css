@@ -1,19 +1,57 @@
-.App {
+/* .App {
   text-align: center;
    display: grid 
+} */
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background-color: white;
+
+  
 }
 
-/* .headersearch {
+.header_search{
   display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-} */
- 
 
+  
+}
+
+
+  
+
+.header_logo{
+  height: 25px;
+  object-fit: contain;
+  margin-left: 20px;
+}
+
+
+.header_icons {
+  display: flex;
+  align-items: center;
+}
+
+.header_input > input{
+  flex: 1;
+  border: none;
+}
+
+.header_input_button{
+  width: 50px;
+  background-color: #fafafa;
+  border-left: 1px solid lightgray;
+  color: gray;
+}
+
+.header_icon{
+  margin-right: 8px;
+}
 
 .MainVideo{
   display: flex;

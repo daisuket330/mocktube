@@ -1,12 +1,15 @@
 import axios from 'axios';
 import React, { Component } from 'react'
+import {useEffect, useState} from 'react';
+
+
 
 class Comments extends Component {
     constructor(props) {
         super(props);
         this.state = { 
             comment: '',
-            video_id: '',
+            video_id: props.selectedVideo,
             like:0,
             dislike:0,
         }
@@ -25,11 +28,11 @@ class Comments extends Component {
 
     addComment = async() => {
         const comments ={
-            comment:this.state.comment,
             video_id:this.state.video_id,
+            comment:this.state.comment,
             dislike:this.state.dislike,
             like:this.state.like
-        }
+        };
         try{
 
             let response = await axios.post(`http://127.0.0.1:8000/mytube/video/`, comments);

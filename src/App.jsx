@@ -79,13 +79,20 @@ class App extends Component {
       }
       render() { 
           return (  
-              <div className="header">
+              <div></div>
+          );
+      }
+  }
+    
+    return ( 
+      <div>
+        <div className="header">
               <div className= "header_search">
               <MenuIcon />  
               <img 
               className="header_logo"
               src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Logo_of_YouTube_%282015-2017%29.svg" alt="" />
-              
+              <Search className= "header_search" search = {this.myCallback} />
               {}
               </div>
   
@@ -105,14 +112,7 @@ class App extends Component {
               
           
           </div>
-          );
-      }
-  }
-    
-    return ( 
-      <div>
         
-        <Search className= "header_search" search = {this.myCallback} />
           
         <Header />
         <Sidebar />
@@ -148,9 +148,3 @@ class App extends Component {
 }
 }
 export default App;
-
-    
-
-
-            
-
