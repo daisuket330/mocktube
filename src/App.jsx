@@ -5,7 +5,7 @@ import Search from './components/search';
 import MainVideo from './components/MainVideo';
 import Header from './Header';
 import Sidebar from './sidebar';
-import Recommend from './recommended';
+
 import SearchResults from './components/SearchResults';
 import RelatedVideos from './components/RelatedVideos';
 import './Header.css';
@@ -48,9 +48,35 @@ class App extends Component {
       console.log(response);
       this.setState({
         videos: response.data.items,
-        selectedVideo: 'AxEl8J-bZ_c'
+        selectedVideo: this.state.selectedVideo
       });
       console.log("GetVideos");
+      console.log(response.data.items);
+    }
+
+    async getComments(video) {
+      let response = await axios.get(`http://127.0.0.1:8000/mytube/${video}/`)
+      this.setState({
+        comments: response.data,
+        dataloaded: true
+      })
+    }
+    async getRelatedVideos(selectedVideo) {
+      let response = await axios.get(` https://www.googleapis.com/youtube/v3/search`, {
+        params:{
+          part: 'snippet',
+          maxResults: 5,
+          key: 'AIzaSyCBrMSzk3GmmDSgej52easCbphBZlr2ljE',
+          relatedToVideoId: selectedVideo,
+          type: 'video'
+        }
+      });
+      console.log(response);
+      this.setState({
+        relatedVideos: response.data.items,
+        selectedVideo: this.state.selectedVideo
+      });
+      console.log("GetRelatedVideos");
       console.log(response.data.items);
     }
   
@@ -91,7 +117,7 @@ class App extends Component {
               <MenuIcon />  
               <img 
               className="header_logo"
-              src="https://upload.wikimedia.org/wikipedia/commons/e/e1/Logo_of_YouTube_%282015-2017%29.svg" alt="" />
+              src="https://i.imgur.com/tHZm4j2.jpeg" alt="" />
               <Search className= "header_search" search = {this.myCallback} />
               {}
               </div>
@@ -129,6 +155,7 @@ class App extends Component {
          {this.state.search !== '' ?
         <SearchResults videos = {this.state.videos} func = {onSelect}/>
         : <div></div>}
+        <RelatedVideos videos = {this.state.relatedVideos} func={onSelect} />
         <Comments />
        
 

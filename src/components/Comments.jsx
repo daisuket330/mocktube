@@ -54,7 +54,7 @@ class Comments extends Component {
         return (
             <form onSubmit ={this.handleSubmit}>
             <label>Comment:</label>
-            <input name="comment" onChange={this.handleChange} value={this.state.comment}></input>
+            <input className="maskedBox" size="100" name="comment" onChange={this.handleChange} value={this.state.comment}></input>
             <button className="add comment" type="submit">Add Comment</button>
             </form> 
          );
@@ -62,3 +62,5 @@ class Comments extends Component {
 }
  
 export default Comments;
+
+
