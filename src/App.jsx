@@ -66,7 +66,7 @@ class App extends Component {
         params:{
           part: 'snippet',
           maxResults: 5,
-          key: 'AIzaSyCBrMSzk3GmmDSgej52easCbphBZlr2ljE',
+          key: 'AIzaSyAYK1c_uKCU4g4XfW7Upmvy4b2B8PTQaYo',
           relatedToVideoId: selectedVideo,
           type: 'video'
         }
